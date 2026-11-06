@@ -40,7 +40,7 @@
 
 我倾向于通过完整的实验链路学习技术：
 
-**Read Papers → Reproduce → Deploy → Benchmark → Analyze → Improve**
+**Read Papers → Reproduce → Deploy → Benchmark → Analyze → Improve → Experiments → Report
 
 关注的不只是某个方法的最高加速比，还包括硬件条件、请求分布、并发规模、显存开销和性能边界。
 
