@@ -1,6 +1,6 @@
 # Hi, I'm Lichen 👋
 
-**AI Infra · LLM Inference · Speculative Decoding · Systems & Experiments**
+**AI Infra · LLM 推理系统 · 投机解码 | Training / Architecture / Systems**
 
 香港大学人工智能硕士在读，持续探索大模型从训练、架构到推理部署的完整链路。
 
