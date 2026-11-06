@@ -1,11 +1,17 @@
 # Hi, I'm Lichen 👋
 
-**AI Infra · LLM 推理系统 · 投机解码 · GPU 性能实测**
+**AI Infra · LLM 推理系统 · 投机解码 · 训练 / 结构 / 实测**
 
 香港大学人工智能硕士在读。比起标称值，我更关心推理系统的**实测数字**：
 一张卡放不放得下、能扛多少并发、投机解码到底快多少、什么时候反而更慢。
 
-*I build and benchmark LLM inference systems, and publish the numbers together with their limits.*
+*I build and benchmark LLM inference systems, publish the numbers with their limits,
+and care about the training recipe and architecture behind them.*
+
+除了推理侧，我也往下看训练与结构：draft 的 loss 压低不等于有收益，真正决定加速比的是
+真实请求分布上的接受率、以及「每次验证能收几个 token」——所以复现 EAGLE-3 时，训练数据的
+重生成与 target 特征对齐比调 loss 更关键，验收则放在长输出这类真实负载上；结构上关心
+draft 层深、多层特征融合、树状注意力这些选择，如何在单步显存/带宽与接受率之间做取舍。
 
 ---
 
