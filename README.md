@@ -1,17 +1,24 @@
 # Hi, I'm Lichen 👋
 
-**AI Infra · LLM 推理系统 · 投机解码 · 训练 / 结构 / 实测**
+**AI Infra · LLM Inference · Speculative Decoding · Systems & Experiments**
 
-香港大学人工智能硕士在读。比起标称值，我更关心推理系统的**实测数字**：
-一张卡放不放得下、能扛多少并发、投机解码到底快多少、什么时候反而更慢。
+香港大学人工智能硕士在读，持续探索大模型从训练、架构到推理部署的完整链路。
 
-*I build and benchmark LLM inference systems, publish the numbers with their limits,
-and care about the training recipe and architecture behind them.*
+我喜欢把论文里的想法变成真实跑起来的系统，再用实验数据验证它究竟有没有用。比起标称性能，我更关心一些实际问题：
 
-除了推理侧，我也往下看训练与结构：draft 的 loss 压低不等于有收益，真正决定加速比的是
-真实请求分布上的接受率、以及「每次验证能收几个 token」——所以复现 EAGLE-3 时，训练数据的
-重生成与 target 特征对齐比调 loss 更关键，验收则放在长输出这类真实负载上；结构上关心
-draft 层深、多层特征融合、树状注意力这些选择，如何在单步显存/带宽与接受率之间做取舍。
+- 一张 GPU 到底能装下多大的模型？
+- 推理服务能承受多少并发？瓶颈究竟在计算、显存还是通信？
+- KV Cache 如何管理和传输，才能让显存利用率更高？
+- PD Disaggregation 在真实部署中能带来多少收益？
+- 投机解码什么时候能加速，什么时候反而会更慢？
+
+## 🔬 What I'm Exploring
+
+- **LLM Inference Optimization** — vLLM、SGLang、Continuous Batching、Scheduler、算子与推理性能优化
+- **KV Cache & Memory Management** — PagedAttention、Prefix Caching、KV Cache Offloading、Cache Transfer
+- **Disaggregated Serving** — Prefill-Decode Disaggregation（PD 分离）、异构 GPU 部署与通信优化
+- **Speculative Decoding** — EAGLE-3/4、MTP、DFlash、DSpark，以及 Draft Model 的训练与推理优化
+- **LLM Training & Architecture** — Draft Training、Hidden-state Alignment、Multi-layer Feature Fusion、Tree Attention
 
 ---
 
@@ -26,6 +33,18 @@ draft 层深、多层特征融合、树状注意力这些选择，如何在单�
 | **[llm-sizing-calculator](https://github.com/lichen9240-creator/llm-sizing-calculator)** | 浏览器 | 34 个开源模型的显存 / KV / TTFT / 吞吐测算，含 PD 分离与异构选卡 | 单文件 HTML、零依赖；对 7 个实测点 **MAPE 7.3%** |
 
 > 共同的取舍：宁可写「这条没测出来」，也不拿估计值填空位。
+
+---
+
+## 🛠️ How I Learn & Build
+
+我倾向于通过完整的实验链路学习技术：
+
+**Read Papers → Reproduce → Deploy → Benchmark → Analyze → Improve**
+
+关注的不只是某个方法的最高加速比，还包括硬件条件、请求分布、并发规模、显存开销和性能边界。
+
+目前也在持续积累 GPU 部署、推理压测、投机解码训练与性能对比方面的实践，希望逐渐从复现已有方案，走向真正理解系统并参与底层优化。
 
 ---
 
@@ -59,6 +78,24 @@ draft 层深、多层特征融合、树状注意力这些选择，如何在单�
 动手过的：张量并行与 PD 分离部署、投机解码（MTP / EAGLE / DFlash / DSpark / SUFFIX）、
 压测与指标口径（TTFT / TPOT / ITL / 接受率 / tok/W）、显存与带宽建模、消费级卡（4090 / 5090）调优。
 
+---
+
+## 🎾 Beyond the Terminal
+
+技术之外，我也喜欢运动和户外：
+
+- ⛷️ Skiing — 喜欢速度、平衡，以及不断挑战自己的感觉。
+- 🏸 Badminton — 反应、节奏和一点点策略。
+- 🎾 Tennis — 享受每一次多拍相持。
+
+我相信技术探索和运动有些相似：保持好奇，持续练习，在一次次反馈中变得更好。
+
+---
+
 ## 交流
 
 对推理性能、选型测算或投机解码有不同意见，欢迎直接在这些仓库里开 Issue —— 尤其是能推翻我结论的数据。
+
+*I build, benchmark, and optimize LLM inference systems. I enjoy digging into the details behind performance numbers — from GPU memory and KV Cache to speculative decoding and distributed serving.*
+
+**Always curious. Always building.**
